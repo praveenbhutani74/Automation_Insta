@@ -5,7 +5,6 @@ let Name = "willsmith";
 
 
 
-
 let post;
 
 async function Bot() {
@@ -50,13 +49,14 @@ async function Bot() {
 
         await post.click();
 
-        
+        await tab.waitForSelector('.fr66n [aria-label="Like"] ');
         //For like image 
         let like = await tab.$('.fr66n [aria-label="Like"]');
-        
-        if (like) {
-            await tab.waitForSelector('.fr66n [aria-label="Like"] ');
+        console.log(like);
 
+        if (like) {
+         
+            
             await tab.click('.fr66n [aria-label="Like"] ');
         }
 
@@ -107,7 +107,7 @@ async function Whatsapp(browser) {
 
 
     //For click on whatapp
-    // await newTab.waitForSelector('.TbtXF span[title="mumma"]');
+    await newTab.waitForSelector('.TbtXF span[title="mumma"]');
     let ans = await newTab.$('.TbtXF span[title="mumma"]');
     ans.click();
 
@@ -116,13 +116,13 @@ async function Whatsapp(browser) {
 
     await newTab.click('#main > footer > div.vR1LG._3wXwX.copyable-area > div._2A8P4 > div > div._2_1wd.copyable-text.selectable-text');
 
-// for paste 
+    // for paste 
     await newTab.keyboard.down("Control");
     await newTab.keyboard.press("V");
-    await newTab.waitForTimeout(2000);
+    await newTab.waitForTimeout(500);
     await newTab.keyboard.press("Enter");
     await newTab.keyboard.up("Control");
-    await newTab.waitForTimeout(2000);
+    await newTab.waitForTimeout(500);
     await newTab.waitForSelector('#main > footer > div.vR1LG._3wXwX.copyable-area > div:nth-child(3)');
     await newTab.click('#main > footer > div.vR1LG._3wXwX.copyable-area > div:nth-child(3)');
     await newTab.waitForTimeout(2000);
